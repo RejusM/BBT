@@ -1,20 +1,44 @@
-<!DOCTYPE html>
-<html lang="lt">
-<head>
-    <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagrindinis puslapis</title>
-</head>
-<body>
-<header>
-    <h1>Beklės Begimo Taurė</h1>
-    <nav>
-        <a href="{% url 'register' %}">Registracija į svetainę</a>
-    </nav>
-</header>
-<main>
-    <h2>Sveiki atvykę į Bekelės Bėgimo Taurę</h2>
-    <p>Tikėkimes susimatysime visa sezona!!</p>
-</main>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Bekelės Bėgimo Taurė{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1>Bekelės Bėgimo Taurė</h1>
+    <p class="lead">Patirkite bekelės bėgimo jaudulį su mūsų renginiais.</p>
+    <a href="/register/" class="btn btn-primary btn-lg mt-3">Prisijunkite dabar</a>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <img src="/" class="card-img-top" alt="Renginys 1">
+            <div class="card-body">
+                <h5 class="card-title">Artėjantis renginys</h5>
+                <p class="card-text">Dalyvaukite mūsų kitame įdomiame bekelės bėgimo renginyje!</p>
+                <a href="/" class="btn btn-outline-primary">Sužinokite daugiau</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="/" class="card-img-top" alt="Renginys 2">
+            <div class="card-body">
+                <h5 class="card-title">Mūsų bendruomenė</h5>
+                <p class="card-text">Būkite dalis gyvos bėgikų bendruomenės.</p>
+                <a href="/" class="btn btn-outline-primary">Tyrinėkite</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="/" class="card-img-top" alt="Galerija">
+            <div class="card-body">
+                <h5 class="card-title">Galerija</h5>
+                <p class="card-text">Peržiūrėkite nuotraukas iš ankstesnių renginių.</p>
+                <a href="/" class="btn btn-outline-primary">Peržiūrėti nuotraukas</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

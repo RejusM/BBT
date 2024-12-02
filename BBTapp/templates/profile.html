@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Profilis{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Jūsų profilis</h2>
+    <div>
+        <p><strong>Vardas:</strong> {{ user.userprofile.first_name }}</p>
+        <p><strong>Pavardė:</strong> {{ user.userprofile.last_name }}</p>
+        <p><strong>Slapyvardis:</strong> {{ user.userprofile.nickname }}</p>
+        <p><strong>El. paštas:</strong> {{ user.email }}</p>
+        <p><strong>Gimimo data:</strong> {{ user.userprofile.birthdate }}</p>
+        <p><strong>Telefonas:</strong> {{ user.userprofile.phone_number }}</p>
+        <p><strong>Šalis:</strong> {{ user.userprofile.country }}</p>
+        <p><strong>Miestas:</strong> {{ user.userprofile.city }}</p>
+        <p><strong>Lytis:</strong> 
+            {% if user.userprofile.gender == 'V' %}
+                Vyras
+            {% elif user.userprofile.gender == 'M' %}
+                Moteris
+            {% else %}
+                Nepasirinkta
+            {% endif %}
+        </p>
+        <p><strong>Paskyra sukurta:</strong> {{ user.userprofile.created_at }}</p>
+        <p><strong>Paskutinį kartą atnaujinta:</strong> {{ user.userprofile.updated_at }}</p>
+    </div>
+    <a href="/" class="btn btn-primary">Redaguoti profilį</a>
+</div>
+{% endblock %}

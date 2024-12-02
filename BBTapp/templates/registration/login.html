@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html lang="lt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prisijungti</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="container">
-        <h2>Prisijungti</h2>
-        <form method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
-            {% csrf_token %}
-            
-            <div class="form-group">
-                <label for="nickname">Slapyvardis arba el. paštas</label>
-                <input type="text" id="nickname" name="nickname" required>
-            </div>
+{% block title %}Prisijungti{% endblock %}
 
-            <div class="form-group">
-                <label for="password">Slaptažodis</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+{% block content %}
 
-            <button type="submit">Prisijungti</button>
-        </form>
-
-        <div class="links">
-            <p>Neturite paskyros? <a href="{% url 'register' %}">Užsiregistruokite</a></p>
-            <p>Pamiršote slaptažodį? <a href="{% url 'password_reset' %}">Atstatyti slaptažodį</a></p>
+<div class="container mt-5">
+    <h2>Prisijungti</h2>
+    <form method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Slapyvardis arba el. paštas</label>
+            <input type="text" class="form-control" id="username" name="username" required>
         </div>
-    </div>
 
-</body>
-</html>
+        <div class="form-group">
+            <label for="password">Slaptažodis</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Prisijungti</button>
+    </form>
+
+    <p>Neturite paskyros? <a href="{% url 'register' %}">Užsiregistruokite</a></p>
+    <p>Pamiršote slaptažodį? <a href="{% url 'password_reset' %}">Atstatyti slaptažodį</a></p>
+</div>
+
+{% endblock %}
